@@ -6,14 +6,15 @@
     <title>Gong - Team Selection</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <!-- Header -->
     <header class="header">
         <div class="logo">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M16 2L19.5 11.5L29 12L22 19L24.5 29L16 24L7.5 29L10 19L3 12L12.5 11.5L16 2Z" fill="#7C3AED"/>
-                <circle cx="16" cy="15" r="4" fill="#F59E0B"/>
+            <svg width="28" height="28" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 4L23.5 13.5L33 14L25 21L27.5 31L20 26L12.5 31L15 21L7 14L16.5 13.5L20 4Z" fill="#7C3AED"/>
+                <circle cx="20" cy="17" r="5" fill="#F59E0B"/>
             </svg>
             <span class="logo-text">GONG</span>
         </div>
@@ -54,48 +55,56 @@
                 <div class="preview-column">
                     <h4 class="column-title">Overview & States</h4>
                     <div class="preview-card">
-                        <!-- First state group -->
+                        <!-- First state group - Collapsed with user selected -->
                         <div class="dropdown-preview">
-                            <div class="dropdown-item">
-                                <span class="star-icon">&#9733;</span>
-                                <span>Tee Rex</span>
-                                <span class="item-badge">Your data</span>
-                                <span class="chevron">&#8964;</span>
+                            <div class="dropdown-item collapsed-state">
+                                <span class="star-icon"><i class="fa-solid fa-star"></i></span>
+                                <span class="item-name">Tee Rex</span>
+                                <span class="item-badge purple">Your data</span>
+                                <span class="chevron-icon"><i class="fa-solid fa-chevron-down"></i></span>
                             </div>
-                            <div class="dropdown-item highlighted">
-                                <span class="star-icon filled">&#9733;</span>
-                                <span>Tee Rex</span>
-                                <span class="item-badge">Your data</span>
-                                <span class="arrow-icon">&#8594;</span>
+                        </div>
+
+                        <!-- Expanded dropdown showing selection -->
+                        <div class="dropdown-preview expanded">
+                            <div class="dropdown-item active">
+                                <span class="star-icon filled"><i class="fa-solid fa-star"></i></span>
+                                <span class="item-name">Tee Rex</span>
+                                <span class="item-badge purple">Your data</span>
+                                <span class="arrow-icon"><i class="fa-solid fa-arrow-right"></i></span>
                             </div>
                             <div class="dropdown-item">
-                                <span class="team-icon">&#128101;</span>
-                                <span>Your team</span>
+                                <span class="team-icon"><i class="fa-solid fa-users"></i></span>
+                                <span class="item-name">Your team</span>
                                 <span class="item-badge gray">6 Members</span>
                             </div>
                         </div>
 
                         <div class="divider"></div>
 
-                        <!-- Second state group -->
+                        <!-- Second state - Team selected -->
                         <div class="dropdown-preview">
-                            <div class="dropdown-item">
-                                <span class="team-icon">&#128101;</span>
-                                <span>Your team</span>
+                            <div class="dropdown-item collapsed-state">
+                                <span class="team-icon"><i class="fa-solid fa-users"></i></span>
+                                <span class="item-name">Your team</span>
                                 <span class="item-badge gray">6 Members</span>
-                                <span class="chevron">&#8964;</span>
+                                <span class="chevron-icon"><i class="fa-solid fa-chevron-down"></i></span>
                             </div>
+                        </div>
+
+                        <!-- Expanded dropdown with team selected -->
+                        <div class="dropdown-preview expanded">
                             <div class="dropdown-item">
-                                <span class="star-icon filled">&#9733;</span>
-                                <span>Tee Rex</span>
-                                <span class="item-badge">Your data</span>
-                                <span class="arrow-icon">&#8594;</span>
+                                <span class="star-icon filled"><i class="fa-solid fa-star"></i></span>
+                                <span class="item-name">Tee Rex</span>
+                                <span class="item-badge purple">Your data</span>
+                                <span class="arrow-icon"><i class="fa-solid fa-arrow-right"></i></span>
                             </div>
                             <div class="dropdown-item selected">
-                                <span class="team-icon">&#128101;</span>
-                                <span>Your team</span>
+                                <span class="team-icon"><i class="fa-solid fa-users"></i></span>
+                                <span class="item-name">Your team</span>
                                 <span class="item-badge gray">6 Members</span>
-                                <span class="check-icon">&#10003;</span>
+                                <span class="check-icon"><i class="fa-solid fa-check"></i></span>
                             </div>
                         </div>
                     </div>
@@ -106,29 +115,30 @@
                     <div class="preview-card figma-props">
                         <div class="props-header">
                             <span class="props-title">Team selector</span>
+                            <span class="props-badge">v</span>
                             <div class="props-actions">
-                                <span class="icon-btn">&#9881;</span>
-                                <span class="icon-btn">&#8942;</span>
+                                <span class="icon-btn"><i class="fa-solid fa-gear"></i></span>
+                                <span class="icon-btn"><i class="fa-solid fa-ellipsis-vertical"></i></span>
                             </div>
                         </div>
-                        <div class="props-subtitle">From this file <span class="link-icon">&#128279;</span></div>
+                        <div class="props-subtitle">From this file <i class="fa-solid fa-link"></i></div>
 
                         <div class="props-row">
                             <span class="props-label">Persona</span>
                             <span class="props-value">Account ex...</span>
-                            <span class="chevron-small">&#8964;</span>
+                            <span class="chevron-small"><i class="fa-solid fa-chevron-down"></i></span>
                         </div>
                         <div class="props-section-title">Team selector / Selector box</div>
                         <div class="props-row">
                             <span class="props-label">State</span>
                             <span class="props-value">Idle</span>
-                            <span class="chevron-small">&#8964;</span>
+                            <span class="chevron-small"><i class="fa-solid fa-chevron-down"></i></span>
                         </div>
                         <div class="props-section-title">Team selector / Select / Profiles</div>
                         <div class="props-row">
                             <span class="props-label">Profile</span>
                             <span class="props-value highlighted-value">Persona1</span>
-                            <span class="chevron-small">&#8964;</span>
+                            <span class="chevron-small"><i class="fa-solid fa-chevron-down"></i></span>
                         </div>
                     </div>
                 </div>
@@ -136,11 +146,11 @@
                 <div class="preview-column">
                     <h4 class="column-title">Prototype</h4>
                     <div class="preview-card prototype">
-                        <div class="prototype-dropdown">
-                            <span class="star-icon filled">&#9733;</span>
-                            <span>Tee Rex</span>
-                            <span class="item-badge">Your data</span>
-                            <span class="chevron">&#8964;</span>
+                        <div class="prototype-dropdown" id="prototypeDropdown">
+                            <span class="star-icon filled"><i class="fa-solid fa-star"></i></span>
+                            <span class="item-name">Tee Rex</span>
+                            <span class="item-badge purple">Your data</span>
+                            <span class="chevron-icon"><i class="fa-solid fa-chevron-down"></i></span>
                         </div>
                     </div>
                 </div>
@@ -158,9 +168,9 @@
                 <div class="dashboard-header">
                     <div class="dashboard-left">
                         <div class="gong-icon">
-                            <svg width="24" height="24" viewBox="0 0 32 32" fill="none">
-                                <path d="M16 2L19.5 11.5L29 12L22 19L24.5 29L16 24L7.5 29L10 19L3 12L12.5 11.5L16 2Z" fill="#7C3AED"/>
-                                <circle cx="16" cy="15" r="4" fill="#F59E0B"/>
+                            <svg width="28" height="28" viewBox="0 0 40 40" fill="none">
+                                <path d="M20 4L23.5 13.5L33 14L25 21L27.5 31L20 26L12.5 31L15 21L7 14L16.5 13.5L20 4Z" fill="#7C3AED"/>
+                                <circle cx="20" cy="17" r="5" fill="#F59E0B"/>
                             </svg>
                         </div>
                         <div class="pipeline-info">
@@ -169,17 +179,23 @@
                         </div>
                     </div>
                     <div class="dashboard-center">
-                        <input type="text" class="search-input" placeholder="Search account, people...">
+                        <div class="search-box">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input type="text" class="search-input" placeholder="Search account, people...">
+                        </div>
                     </div>
                     <div class="dashboard-right">
                         <button class="filter-btn">
-                            <span class="filter-icon">&#9632;</span>
+                            <span class="filter-dots">
+                                <span class="fdot orange"></span>
+                                <span class="fdot orange"></span>
+                            </span>
                             Go-to-market
-                            <span class="chevron">&#8964;</span>
+                            <i class="fa-solid fa-chevron-down"></i>
                         </button>
-                        <button class="icon-button">&#9834;</button>
-                        <button class="icon-button">&#9881;</button>
-                        <button class="icon-button">?</button>
+                        <button class="icon-button"><i class="fa-solid fa-music"></i></button>
+                        <button class="icon-button"><i class="fa-solid fa-grip"></i></button>
+                        <button class="icon-button"><i class="fa-solid fa-question"></i></button>
                         <div class="avatar">CM</div>
                     </div>
                 </div>
@@ -187,29 +203,30 @@
                 <!-- Pipeline Filter Row -->
                 <div class="pipeline-filter-row">
                     <div class="pipeline-selector">
-                        <span class="pipeline-icon">&#9650;</span>
-                        <span>Commercial - Getting to Power (Alignment+)</span>
-                        <span class="chevron">&#8964;</span>
-                        <span class="info-icon">&#9432;</span>
+                        <span class="pipeline-icon"><i class="fa-solid fa-caret-up"></i></span>
+                        <span class="pipeline-name">Commercial - Getting to Power (Alignment+)</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                        <span class="info-icon"><i class="fa-solid fa-circle-info"></i></span>
                     </div>
 
                     <!-- Team Selector Dropdown -->
                     <div class="team-selector-container">
                         <div class="team-selector" id="teamSelector">
-                            <span class="star-icon filled">&#9733;</span>
-                            <span>Tee Rex</span>
-                            <span class="item-badge">Your data</span>
-                            <span class="chevron">&#8964;</span>
+                            <span class="star-icon filled"><i class="fa-solid fa-star"></i></span>
+                            <span class="item-name">Tee Rex</span>
+                            <span class="item-badge purple">Your data</span>
+                            <i class="fa-solid fa-chevron-down"></i>
                         </div>
                         <div class="team-dropdown" id="teamDropdown">
-                            <div class="dropdown-option" data-value="tee-rex">
-                                <span class="star-icon filled">&#9733;</span>
-                                <span>Tee Rex</span>
-                                <span class="item-badge">Your data</span>
+                            <div class="dropdown-option selected" data-value="tee-rex">
+                                <span class="star-icon filled"><i class="fa-solid fa-star"></i></span>
+                                <span class="item-name">Tee Rex</span>
+                                <span class="item-badge purple">Your data</span>
+                                <span class="check-icon"><i class="fa-solid fa-check"></i></span>
                             </div>
                             <div class="dropdown-option" data-value="team">
-                                <span class="team-icon">&#128101;</span>
-                                <span>Your team</span>
+                                <span class="team-icon"><i class="fa-solid fa-users"></i></span>
+                                <span class="item-name">Your team</span>
                                 <span class="item-badge gray">6 Members</span>
                             </div>
                         </div>
@@ -217,11 +234,11 @@
 
                     <div class="pipeline-actions">
                         <span class="currency">USD</span>
-                        <span class="chevron">&#8964;</span>
+                        <i class="fa-solid fa-chevron-down"></i>
                         <button class="share-btn">
-                            <span>&#8599;</span> Share
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Share
                         </button>
-                        <button class="more-btn">&#8942;</button>
+                        <button class="more-btn"><i class="fa-solid fa-ellipsis-vertical"></i></button>
                     </div>
                 </div>
 
@@ -247,15 +264,15 @@
                 <!-- Search and Table Controls -->
                 <div class="table-controls">
                     <div class="search-deals">
-                        <span class="search-icon">&#128269;</span>
+                        <i class="fa-solid fa-magnifying-glass"></i>
                         <input type="text" placeholder="Search deals">
                     </div>
                     <div class="table-actions">
                         <button class="sort-btn">
-                            <span>&#8597;</span> Sort
+                            <i class="fa-solid fa-arrow-down-short-wide"></i> Sort
                         </button>
                         <button class="columns-btn">
-                            <span>&#9638;</span> Manage columns
+                            <i class="fa-solid fa-table-columns"></i> Manage columns
                         </button>
                     </div>
                 </div>
@@ -286,14 +303,16 @@
                                     </div>
                                 </td>
                                 <td class="col-score"><span class="score high">18</span></td>
-                                <td class="col-warning"><span class="warning">&#9650; 4.7</span></td>
+                                <td class="col-warning"><span class="warning"><i class="fa-solid fa-caret-up"></i> 4.7</span></td>
                                 <td class="col-activity">
                                     <div class="activity-dots">
-                                        <span class="dot purple"></span>
-                                        <span class="dot purple"></span>
-                                        <span class="dot purple"></span>
-                                        <span class="dot light"></span>
-                                        <span class="dot light"></span>
+                                        <span class="dot filled"></span>
+                                        <span class="dot filled"></span>
+                                        <span class="dot filled"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
                                     </div>
                                 </td>
                                 <td class="col-stage">Validation</td>
@@ -314,11 +333,13 @@
                                 <td class="col-warning">-</td>
                                 <td class="col-activity">
                                     <div class="activity-dots">
-                                        <span class="dot purple"></span>
-                                        <span class="dot purple"></span>
-                                        <span class="dot light"></span>
-                                        <span class="dot light"></span>
-                                        <span class="dot light"></span>
+                                        <span class="dot filled"></span>
+                                        <span class="dot filled"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
                                     </div>
                                 </td>
                                 <td class="col-stage">Discovery</td>
@@ -336,14 +357,16 @@
                                     </div>
                                 </td>
                                 <td class="col-score"><span class="score high">97</span></td>
-                                <td class="col-warning"><span class="warning">&#9650; 3</span></td>
+                                <td class="col-warning"><span class="warning"><i class="fa-solid fa-caret-up"></i> 3</span></td>
                                 <td class="col-activity">
                                     <div class="activity-dots">
-                                        <span class="dot purple"></span>
-                                        <span class="dot purple"></span>
-                                        <span class="dot purple"></span>
-                                        <span class="dot purple"></span>
-                                        <span class="dot light"></span>
+                                        <span class="dot filled"></span>
+                                        <span class="dot filled"></span>
+                                        <span class="dot filled"></span>
+                                        <span class="dot filled"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
                                     </div>
                                 </td>
                                 <td class="col-stage">Alignment</td>
@@ -364,11 +387,13 @@
                                 <td class="col-warning">-</td>
                                 <td class="col-activity">
                                     <div class="activity-dots">
-                                        <span class="dot purple"></span>
-                                        <span class="dot light"></span>
-                                        <span class="dot light"></span>
-                                        <span class="dot light"></span>
-                                        <span class="dot light"></span>
+                                        <span class="dot filled"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
                                     </div>
                                 </td>
                                 <td class="col-stage">Validation</td>
@@ -389,11 +414,13 @@
                                 <td class="col-warning">-</td>
                                 <td class="col-activity">
                                     <div class="activity-dots">
-                                        <span class="dot purple"></span>
-                                        <span class="dot purple"></span>
-                                        <span class="dot light"></span>
-                                        <span class="dot light"></span>
-                                        <span class="dot light"></span>
+                                        <span class="dot filled"></span>
+                                        <span class="dot filled"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
                                     </div>
                                 </td>
                                 <td class="col-stage">Qualification</td>
@@ -411,14 +438,16 @@
                                     </div>
                                 </td>
                                 <td class="col-score"><span class="score low">33</span></td>
-                                <td class="col-warning"><span class="warning">&#9650; 4.1</span></td>
+                                <td class="col-warning"><span class="warning"><i class="fa-solid fa-caret-up"></i> 4.1</span></td>
                                 <td class="col-activity">
                                     <div class="activity-dots">
-                                        <span class="dot purple"></span>
-                                        <span class="dot purple"></span>
-                                        <span class="dot purple"></span>
-                                        <span class="dot light"></span>
-                                        <span class="dot light"></span>
+                                        <span class="dot filled"></span>
+                                        <span class="dot filled"></span>
+                                        <span class="dot filled"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
                                     </div>
                                 </td>
                                 <td class="col-stage">Validation</td>
@@ -436,14 +465,16 @@
                                     </div>
                                 </td>
                                 <td class="col-score"><span class="score medium">44</span></td>
-                                <td class="col-warning"><span class="warning">&#9650; 4.7</span></td>
+                                <td class="col-warning"><span class="warning"><i class="fa-solid fa-caret-up"></i> 4.7</span></td>
                                 <td class="col-activity">
                                     <div class="activity-dots">
-                                        <span class="dot purple"></span>
-                                        <span class="dot purple"></span>
-                                        <span class="dot light"></span>
-                                        <span class="dot light"></span>
-                                        <span class="dot light"></span>
+                                        <span class="dot filled"></span>
+                                        <span class="dot filled"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
                                     </div>
                                 </td>
                                 <td class="col-stage">Pilot</td>
@@ -461,14 +492,16 @@
                                     </div>
                                 </td>
                                 <td class="col-score"><span class="score medium">55</span></td>
-                                <td class="col-warning"><span class="warning">&#9650; 4.4</span></td>
+                                <td class="col-warning"><span class="warning"><i class="fa-solid fa-caret-up"></i> 4.4</span></td>
                                 <td class="col-activity">
                                     <div class="activity-dots">
-                                        <span class="dot purple"></span>
-                                        <span class="dot purple"></span>
-                                        <span class="dot purple"></span>
-                                        <span class="dot light"></span>
-                                        <span class="dot light"></span>
+                                        <span class="dot filled"></span>
+                                        <span class="dot filled"></span>
+                                        <span class="dot filled"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
                                     </div>
                                 </td>
                                 <td class="col-stage">Discovery</td>
@@ -486,14 +519,16 @@
                                     </div>
                                 </td>
                                 <td class="col-score"><span class="score high">96</span></td>
-                                <td class="col-warning"><span class="warning">&#9650; 4.8</span></td>
+                                <td class="col-warning"><span class="warning"><i class="fa-solid fa-caret-up"></i> 4.8</span></td>
                                 <td class="col-activity">
                                     <div class="activity-dots">
-                                        <span class="dot purple"></span>
-                                        <span class="dot purple"></span>
-                                        <span class="dot purple"></span>
-                                        <span class="dot purple"></span>
-                                        <span class="dot purple"></span>
+                                        <span class="dot filled"></span>
+                                        <span class="dot filled"></span>
+                                        <span class="dot filled"></span>
+                                        <span class="dot filled"></span>
+                                        <span class="dot filled"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
                                     </div>
                                 </td>
                                 <td class="col-stage">Alignment</td>
@@ -516,7 +551,7 @@
                         <button class="page-btn">4</button>
                         <span class="page-ellipsis">...</span>
                         <button class="page-btn">20</button>
-                        <button class="page-btn nav-btn">&#8594;</button>
+                        <button class="page-btn nav-btn"><i class="fa-solid fa-arrow-right"></i></button>
                     </div>
                 </div>
             </div>

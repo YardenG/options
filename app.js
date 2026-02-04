@@ -5,11 +5,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const dropdownOptions = document.querySelectorAll('.dropdown-option');
 
     // Toggle dropdown on selector click
-    teamSelector.addEventListener('click', function(e) {
-        e.stopPropagation();
-        teamSelector.classList.toggle('active');
-        teamDropdown.classList.toggle('show');
-    });
+    if (teamSelector) {
+        teamSelector.addEventListener('click', function(e) {
+            e.stopPropagation();
+            teamSelector.classList.toggle('active');
+            teamDropdown.classList.toggle('show');
+        });
+    }
 
     // Handle option selection
     dropdownOptions.forEach(option => {
@@ -17,39 +19,57 @@ document.addEventListener('DOMContentLoaded', function() {
             e.stopPropagation();
 
             // Remove selected class from all options
-            dropdownOptions.forEach(opt => opt.classList.remove('selected'));
+            dropdownOptions.forEach(opt => {
+                opt.classList.remove('selected');
+                const checkIcon = opt.querySelector('.check-icon');
+                if (checkIcon) checkIcon.remove();
+            });
 
             // Add selected class to clicked option
             this.classList.add('selected');
+
+            // Add check icon to selected option
+            const checkIcon = document.createElement('span');
+            checkIcon.className = 'check-icon';
+            checkIcon.innerHTML = '<i class="fa-solid fa-check"></i>';
+            this.appendChild(checkIcon);
 
             // Update selector display
             const value = this.dataset.value;
             if (value === 'tee-rex') {
                 teamSelector.innerHTML = `
-                    <span class="star-icon filled">&#9733;</span>
-                    <span>Tee Rex</span>
-                    <span class="item-badge">Your data</span>
-                    <span class="chevron">&#8964;</span>
+                    <span class="star-icon filled"><i class="fa-solid fa-star"></i></span>
+                    <span class="item-name">Tee Rex</span>
+                    <span class="item-badge purple">Your data</span>
+                    <i class="fa-solid fa-chevron-down"></i>
                 `;
             } else if (value === 'team') {
                 teamSelector.innerHTML = `
-                    <span class="team-icon">&#128101;</span>
-                    <span>Your team</span>
+                    <span class="team-icon"><i class="fa-solid fa-users"></i></span>
+                    <span class="item-name">Your team</span>
                     <span class="item-badge gray">6 Members</span>
-                    <span class="chevron">&#8964;</span>
+                    <i class="fa-solid fa-chevron-down"></i>
                 `;
             }
 
             // Close dropdown
             teamDropdown.classList.remove('show');
             teamSelector.classList.remove('active');
+
+            // Trigger visual feedback
+            teamSelector.style.borderColor = '#7C3AED';
+            setTimeout(() => {
+                teamSelector.style.borderColor = '';
+            }, 300);
         });
     });
 
     // Close dropdown when clicking outside
-    document.addEventListener('click', function() {
-        teamDropdown.classList.remove('show');
-        teamSelector.classList.remove('active');
+    document.addEventListener('click', function(e) {
+        if (teamDropdown && !teamDropdown.contains(e.target) && !teamSelector.contains(e.target)) {
+            teamDropdown.classList.remove('show');
+            teamSelector.classList.remove('active');
+        }
     });
 
     // Pagination functionality
@@ -65,90 +85,117 @@ document.addEventListener('DOMContentLoaded', function() {
     const searchDealsInput = document.querySelector('.search-deals input');
     const tableRows = document.querySelectorAll('.deals-table tbody tr');
 
-    searchDealsInput.addEventListener('input', function() {
-        const searchTerm = this.value.toLowerCase();
+    if (searchDealsInput) {
+        searchDealsInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
 
-        tableRows.forEach(row => {
-            const dealName = row.querySelector('.deal-name');
-            if (dealName) {
-                const name = dealName.textContent.toLowerCase();
-                if (name.includes(searchTerm)) {
-                    row.style.display = '';
-                } else {
-                    row.style.display = 'none';
+            tableRows.forEach(row => {
+                const dealName = row.querySelector('.deal-name');
+                if (dealName) {
+                    const name = dealName.textContent.toLowerCase();
+                    if (name.includes(searchTerm)) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
                 }
+            });
+        });
+    }
+
+    // Sort functionality
+    const sortBtn = document.querySelector('.sort-btn');
+    let sortAscending = true;
+
+    if (sortBtn) {
+        sortBtn.addEventListener('click', function() {
+            const tbody = document.querySelector('.deals-table tbody');
+            const rows = Array.from(tbody.querySelectorAll('tr'));
+
+            rows.sort((a, b) => {
+                const nameA = a.querySelector('.deal-name').textContent;
+                const nameB = b.querySelector('.deal-name').textContent;
+                return sortAscending ? nameA.localeCompare(nameB) : nameB.localeCompare(nameA);
+            });
+
+            sortAscending = !sortAscending;
+            rows.forEach(row => tbody.appendChild(row));
+
+            // Visual feedback
+            this.style.color = '#7C3AED';
+            setTimeout(() => {
+                this.style.color = '';
+            }, 300);
+        });
+    }
+
+    // Row click interaction
+    tableRows.forEach(row => {
+        row.addEventListener('click', function() {
+            const dealName = this.querySelector('.deal-name');
+            if (dealName) {
+                // Visual feedback on row click
+                this.style.backgroundColor = '#EDE9FE';
+                setTimeout(() => {
+                    this.style.backgroundColor = '';
+                }, 200);
             }
         });
     });
 
-    // Sort functionality (basic demo)
-    const sortBtn = document.querySelector('.sort-btn');
-    let sortAscending = true;
-
-    sortBtn.addEventListener('click', function() {
-        const tbody = document.querySelector('.deals-table tbody');
-        const rows = Array.from(tbody.querySelectorAll('tr'));
-
-        rows.sort((a, b) => {
-            const nameA = a.querySelector('.deal-name').textContent;
-            const nameB = b.querySelector('.deal-name').textContent;
-            return sortAscending ? nameA.localeCompare(nameB) : nameB.localeCompare(nameA);
-        });
-
-        sortAscending = !sortAscending;
-
-        rows.forEach(row => tbody.appendChild(row));
-    });
-
-    // Row hover effect for better UX
-    tableRows.forEach(row => {
-        row.addEventListener('mouseenter', function() {
-            this.style.cursor = 'pointer';
-        });
-    });
-
-    // Simulate clicking on a deal row
-    tableRows.forEach(row => {
-        row.addEventListener('click', function() {
-            const dealName = this.querySelector('.deal-name').textContent;
-            console.log(`Opening deal: ${dealName}`);
-            // In a real app, this would navigate to the deal details page
-        });
-    });
-
-    // Interactive prototype dropdown in preview section
-    const prototypeDropdown = document.querySelector('.prototype-dropdown');
+    // Prototype dropdown toggle
+    const prototypeDropdown = document.getElementById('prototypeDropdown');
     if (prototypeDropdown) {
+        let isTeamSelected = false;
         prototypeDropdown.addEventListener('click', function() {
-            // Toggle between states for demo
-            const hasTeam = this.querySelector('.team-icon');
-            if (hasTeam) {
+            isTeamSelected = !isTeamSelected;
+            if (isTeamSelected) {
                 this.innerHTML = `
-                    <span class="star-icon filled">&#9733;</span>
-                    <span>Tee Rex</span>
-                    <span class="item-badge">Your data</span>
-                    <span class="chevron">&#8964;</span>
+                    <span class="team-icon"><i class="fa-solid fa-users"></i></span>
+                    <span class="item-name">Your team</span>
+                    <span class="item-badge gray">6 Members</span>
+                    <span class="chevron-icon"><i class="fa-solid fa-chevron-down"></i></span>
                 `;
             } else {
                 this.innerHTML = `
-                    <span class="team-icon">&#128101;</span>
-                    <span>Your team</span>
-                    <span class="item-badge gray">6 Members</span>
-                    <span class="chevron">&#8964;</span>
+                    <span class="star-icon filled"><i class="fa-solid fa-star"></i></span>
+                    <span class="item-name">Tee Rex</span>
+                    <span class="item-badge purple">Your data</span>
+                    <span class="chevron-icon"><i class="fa-solid fa-chevron-down"></i></span>
                 `;
             }
         });
     }
 
-    // Smooth scroll behavior
-    document.documentElement.style.scrollBehavior = 'smooth';
+    // Keyboard navigation for dropdown
+    document.addEventListener('keydown', function(e) {
+        if (teamDropdown && teamDropdown.classList.contains('show')) {
+            if (e.key === 'Escape') {
+                teamDropdown.classList.remove('show');
+                teamSelector.classList.remove('active');
+            }
+            if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+                e.preventDefault();
+                const options = Array.from(dropdownOptions);
+                const currentIndex = options.findIndex(opt => opt.classList.contains('selected'));
+                let nextIndex;
+                if (e.key === 'ArrowDown') {
+                    nextIndex = currentIndex < options.length - 1 ? currentIndex + 1 : 0;
+                } else {
+                    nextIndex = currentIndex > 0 ? currentIndex - 1 : options.length - 1;
+                }
+                options[nextIndex].click();
+            }
+        }
+    });
 
-    // Add animation to stats on scroll
+    // Stats animation on scroll
     const observerOptions = {
-        threshold: 0.5
+        threshold: 0.5,
+        rootMargin: '0px'
     };
 
-    const observer = new IntersectionObserver((entries) => {
+    const animateOnScroll = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.style.opacity = '1';
@@ -157,10 +204,34 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, observerOptions);
 
-    document.querySelectorAll('.stat-card').forEach(card => {
+    document.querySelectorAll('.stat-card').forEach((card, index) => {
         card.style.opacity = '0';
-        card.style.transform = 'translateY(20px)';
-        card.style.transition = 'all 0.3s ease-out';
-        observer.observe(card);
+        card.style.transform = 'translateY(10px)';
+        card.style.transition = `all 0.3s ease-out ${index * 0.1}s`;
+        animateOnScroll.observe(card);
     });
+
+    // Filter button interaction
+    const filterBtn = document.querySelector('.filter-btn');
+    if (filterBtn) {
+        filterBtn.addEventListener('click', function() {
+            this.style.backgroundColor = '#E5E7EB';
+            setTimeout(() => {
+                this.style.backgroundColor = '';
+            }, 150);
+        });
+    }
+
+    // Share button interaction
+    const shareBtn = document.querySelector('.share-btn');
+    if (shareBtn) {
+        shareBtn.addEventListener('click', function() {
+            this.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
+            this.style.color = '#10B981';
+            setTimeout(() => {
+                this.innerHTML = '<i class="fa-solid fa-arrow-up-right-from-square"></i> Share';
+                this.style.color = '';
+            }, 1500);
+        });
+    }
 });
