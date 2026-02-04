@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gong - Team Selection</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16 2L19.5 11.5L29 12L22 19L24.5 29L16 24L7.5 29L10 19L3 12L12.5 11.5L16 2Z" fill="#7C3AED"/>
+                <circle cx="16" cy="15" r="4" fill="#F59E0B"/>
+            </svg>
+            <span class="logo-text">GONG</span>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <span class="subtitle">Home Assignment</span>
+            <h1 class="title">Team Selection</h1>
+
+            <div class="requirements">
+                <h3>Usecase</h3>
+                <p>Define a common component for a team selector that serves the pages of deals and stats.</p>
+
+                <h3>Requirements</h3>
+                <p>Define a common component for a user/team selector that serves both pages of deals and stats.</p>
+                <p>The selector should enable all the relevant users to easily view their own data.</p>
+                <p>Make sure you take under consideration the fact that some users (such as VP sales) may have several users or teams reporting to them.</p>
+            </div>
+        </section>
+
+        <!-- Solution Section -->
+        <section class="solution-section">
+            <h2 class="section-title">The solution</h2>
+            <p class="solution-description">
+                A <strong>Team selector dropdown</strong> that allows each user to view select and view only the relevant options according to his persona.
+            </p>
+
+            <div class="persona-section">
+                <h3>Account executives (AEs)</h3>
+                <p>Account executives can select to view their own data or<br>to view their whole team's data (including their own).</p>
+            </div>
+
+            <!-- Three Column Preview -->
+            <div class="preview-columns">
+                <div class="preview-column">
+                    <h4 class="column-title">Overview & States</h4>
+                    <div class="preview-card">
+                        <!-- First state group -->
+                        <div class="dropdown-preview">
+                            <div class="dropdown-item">
+                                <span class="star-icon">&#9733;</span>
+                                <span>Tee Rex</span>
+                                <span class="item-badge">Your data</span>
+                                <span class="chevron">&#8964;</span>
+                            </div>
+                            <div class="dropdown-item highlighted">
+                                <span class="star-icon filled">&#9733;</span>
+                                <span>Tee Rex</span>
+                                <span class="item-badge">Your data</span>
+                                <span class="arrow-icon">&#8594;</span>
+                            </div>
+                            <div class="dropdown-item">
+                                <span class="team-icon">&#128101;</span>
+                                <span>Your team</span>
+                                <span class="item-badge gray">6 Members</span>
+                            </div>
+                        </div>
+
+                        <div class="divider"></div>
+
+                        <!-- Second state group -->
+                        <div class="dropdown-preview">
+                            <div class="dropdown-item">
+                                <span class="team-icon">&#128101;</span>
+                                <span>Your team</span>
+                                <span class="item-badge gray">6 Members</span>
+                                <span class="chevron">&#8964;</span>
+                            </div>
+                            <div class="dropdown-item">
+                                <span class="star-icon filled">&#9733;</span>
+                                <span>Tee Rex</span>
+                                <span class="item-badge">Your data</span>
+                                <span class="arrow-icon">&#8594;</span>
+                            </div>
+                            <div class="dropdown-item selected">
+                                <span class="team-icon">&#128101;</span>
+                                <span>Your team</span>
+                                <span class="item-badge gray">6 Members</span>
+                                <span class="check-icon">&#10003;</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="preview-column">
+                    <h4 class="column-title">Figma Props</h4>
+                    <div class="preview-card figma-props">
+                        <div class="props-header">
+                            <span class="props-title">Team selector</span>
+                            <div class="props-actions">
+                                <span class="icon-btn">&#9881;</span>
+                                <span class="icon-btn">&#8942;</span>
+                            </div>
+                        </div>
+                        <div class="props-subtitle">From this file <span class="link-icon">&#128279;</span></div>
+
+                        <div class="props-row">
+                            <span class="props-label">Persona</span>
+                            <span class="props-value">Account ex...</span>
+                            <span class="chevron-small">&#8964;</span>
+                        </div>
+                        <div class="props-section-title">Team selector / Selector box</div>
+                        <div class="props-row">
+                            <span class="props-label">State</span>
+                            <span class="props-value">Idle</span>
+                            <span class="chevron-small">&#8964;</span>
+                        </div>
+                        <div class="props-section-title">Team selector / Select / Profiles</div>
+                        <div class="props-row">
+                            <span class="props-label">Profile</span>
+                            <span class="props-value highlighted-value">Persona1</span>
+                            <span class="chevron-small">&#8964;</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="preview-column">
+                    <h4 class="column-title">Prototype</h4>
+                    <div class="preview-card prototype">
+                        <div class="prototype-dropdown">
+                            <span class="star-icon filled">&#9733;</span>
+                            <span>Tee Rex</span>
+                            <span class="item-badge">Your data</span>
+                            <span class="chevron">&#8964;</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Deals Dashboard Section -->
+        <section class="deals-section">
+            <div class="deals-tabs">
+                <button class="tab active">Deals</button>
+            </div>
+
+            <div class="deals-dashboard">
+                <!-- Dashboard Header -->
+                <div class="dashboard-header">
+                    <div class="dashboard-left">
+                        <div class="gong-icon">
+                            <svg width="24" height="24" viewBox="0 0 32 32" fill="none">
+                                <path d="M16 2L19.5 11.5L29 12L22 19L24.5 29L16 24L7.5 29L10 19L3 12L12.5 11.5L16 2Z" fill="#7C3AED"/>
+                                <circle cx="16" cy="15" r="4" fill="#F59E0B"/>
+                            </svg>
+                        </div>
+                        <div class="pipeline-info">
+                            <span class="pipeline-label">Deals</span>
+                            <h3 class="pipeline-title">Pipeline</h3>
+                        </div>
+                    </div>
+                    <div class="dashboard-center">
+                        <input type="text" class="search-input" placeholder="Search account, people...">
+                    </div>
+                    <div class="dashboard-right">
+                        <button class="filter-btn">
+                            <span class="filter-icon">&#9632;</span>
+                            Go-to-market
+                            <span class="chevron">&#8964;</span>
+                        </button>
+                        <button class="icon-button">&#9834;</button>
+                        <button class="icon-button">&#9881;</button>
+                        <button class="icon-button">?</button>
+                        <div class="avatar">CM</div>
+                    </div>
+                </div>
+
+                <!-- Pipeline Filter Row -->
+                <div class="pipeline-filter-row">
+                    <div class="pipeline-selector">
+                        <span class="pipeline-icon">&#9650;</span>
+                        <span>Commercial - Getting to Power (Alignment+)</span>
+                        <span class="chevron">&#8964;</span>
+                        <span class="info-icon">&#9432;</span>
+                    </div>
+
+                    <!-- Team Selector Dropdown -->
+                    <div class="team-selector-container">
+                        <div class="team-selector" id="teamSelector">
+                            <span class="star-icon filled">&#9733;</span>
+                            <span>Tee Rex</span>
+                            <span class="item-badge">Your data</span>
+                            <span class="chevron">&#8964;</span>
+                        </div>
+                        <div class="team-dropdown" id="teamDropdown">
+                            <div class="dropdown-option" data-value="tee-rex">
+                                <span class="star-icon filled">&#9733;</span>
+                                <span>Tee Rex</span>
+                                <span class="item-badge">Your data</span>
+                            </div>
+                            <div class="dropdown-option" data-value="team">
+                                <span class="team-icon">&#128101;</span>
+                                <span>Your team</span>
+                                <span class="item-badge gray">6 Members</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pipeline-actions">
+                        <span class="currency">USD</span>
+                        <span class="chevron">&#8964;</span>
+                        <button class="share-btn">
+                            <span>&#8599;</span> Share
+                        </button>
+                        <button class="more-btn">&#8942;</button>
+                    </div>
+                </div>
+
+                <!-- Stats Row -->
+                <div class="stats-row">
+                    <div class="stat-card">
+                        <span class="stat-label">Most likely</span>
+                        <span class="stat-value">$600.5K</span>
+                        <span class="stat-count">(23)</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">Best case</span>
+                        <span class="stat-value">$9.512M</span>
+                        <span class="stat-count">(120)</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">Early stage</span>
+                        <span class="stat-value">$7.532M</span>
+                        <span class="stat-count">(88)</span>
+                    </div>
+                </div>
+
+                <!-- Search and Table Controls -->
+                <div class="table-controls">
+                    <div class="search-deals">
+                        <span class="search-icon">&#128269;</span>
+                        <input type="text" placeholder="Search deals">
+                    </div>
+                    <div class="table-actions">
+                        <button class="sort-btn">
+                            <span>&#8597;</span> Sort
+                        </button>
+                        <button class="columns-btn">
+                            <span>&#9638;</span> Manage columns
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Deals Table -->
+                <div class="deals-table-container">
+                    <table class="deals-table">
+                        <thead>
+                            <tr>
+                                <th class="col-deal">Deal name</th>
+                                <th class="col-score">Score</th>
+                                <th class="col-warning">Warning</th>
+                                <th class="col-activity">Activity</th>
+                                <th class="col-stage">Stage</th>
+                                <th class="col-next">Next call</th>
+                                <th class="col-amount">Amount</th>
+                                <th class="col-date">Close Date</th>
+                                <th class="col-owner">Owner</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="col-deal">
+                                    <span class="deal-indicator green"></span>
+                                    <div class="deal-info">
+                                        <span class="deal-name">Bubble Gump</span>
+                                        <span class="deal-type">Renewal</span>
+                                    </div>
+                                </td>
+                                <td class="col-score"><span class="score high">18</span></td>
+                                <td class="col-warning"><span class="warning">&#9650; 4.7</span></td>
+                                <td class="col-activity">
+                                    <div class="activity-dots">
+                                        <span class="dot purple"></span>
+                                        <span class="dot purple"></span>
+                                        <span class="dot purple"></span>
+                                        <span class="dot light"></span>
+                                        <span class="dot light"></span>
+                                    </div>
+                                </td>
+                                <td class="col-stage">Validation</td>
+                                <td class="col-next">In 2 days</td>
+                                <td class="col-amount">$24,000</td>
+                                <td class="col-date">Jun 6, 2025</td>
+                                <td class="col-owner"><span class="owner-avatar orange">AS</span></td>
+                            </tr>
+                            <tr>
+                                <td class="col-deal">
+                                    <span class="deal-indicator yellow"></span>
+                                    <div class="deal-info">
+                                        <span class="deal-name">Disney</span>
+                                        <span class="deal-type">New business</span>
+                                    </div>
+                                </td>
+                                <td class="col-score"><span class="score medium">79</span></td>
+                                <td class="col-warning">-</td>
+                                <td class="col-activity">
+                                    <div class="activity-dots">
+                                        <span class="dot purple"></span>
+                                        <span class="dot purple"></span>
+                                        <span class="dot light"></span>
+                                        <span class="dot light"></span>
+                                        <span class="dot light"></span>
+                                    </div>
+                                </td>
+                                <td class="col-stage">Discovery</td>
+                                <td class="col-next">In 3 days</td>
+                                <td class="col-amount">$240,000</td>
+                                <td class="col-date">May 16, 2025</td>
+                                <td class="col-owner"><span class="owner-avatar pink">JH</span></td>
+                            </tr>
+                            <tr>
+                                <td class="col-deal">
+                                    <span class="deal-indicator green"></span>
+                                    <div class="deal-info">
+                                        <span class="deal-name">Disney plus TV</span>
+                                        <span class="deal-type">Upsell</span>
+                                    </div>
+                                </td>
+                                <td class="col-score"><span class="score high">97</span></td>
+                                <td class="col-warning"><span class="warning">&#9650; 3</span></td>
+                                <td class="col-activity">
+                                    <div class="activity-dots">
+                                        <span class="dot purple"></span>
+                                        <span class="dot purple"></span>
+                                        <span class="dot purple"></span>
+                                        <span class="dot purple"></span>
+                                        <span class="dot light"></span>
+                                    </div>
+                                </td>
+                                <td class="col-stage">Alignment</td>
+                                <td class="col-next">Today</td>
+                                <td class="col-amount">$100,500</td>
+                                <td class="col-date">Apr 12, 2025</td>
+                                <td class="col-owner"><span class="owner-avatar teal">HS</span></td>
+                            </tr>
+                            <tr>
+                                <td class="col-deal">
+                                    <span class="deal-indicator red"></span>
+                                    <div class="deal-info">
+                                        <span class="deal-name">Fusion Connect</span>
+                                        <span class="deal-type">Renewal</span>
+                                    </div>
+                                </td>
+                                <td class="col-score"><span class="score low">21</span></td>
+                                <td class="col-warning">-</td>
+                                <td class="col-activity">
+                                    <div class="activity-dots">
+                                        <span class="dot purple"></span>
+                                        <span class="dot light"></span>
+                                        <span class="dot light"></span>
+                                        <span class="dot light"></span>
+                                        <span class="dot light"></span>
+                                    </div>
+                                </td>
+                                <td class="col-stage">Validation</td>
+                                <td class="col-next">-</td>
+                                <td class="col-amount">$65,000</td>
+                                <td class="col-date">March 6, 2025</td>
+                                <td class="col-owner"><span class="owner-avatar blue">DP</span></td>
+                            </tr>
+                            <tr>
+                                <td class="col-deal">
+                                    <span class="deal-indicator yellow"></span>
+                                    <div class="deal-info">
+                                        <span class="deal-name">Cyberdyne Systems</span>
+                                        <span class="deal-type">New business</span>
+                                    </div>
+                                </td>
+                                <td class="col-score"><span class="score low">22</span></td>
+                                <td class="col-warning">-</td>
+                                <td class="col-activity">
+                                    <div class="activity-dots">
+                                        <span class="dot purple"></span>
+                                        <span class="dot purple"></span>
+                                        <span class="dot light"></span>
+                                        <span class="dot light"></span>
+                                        <span class="dot light"></span>
+                                    </div>
+                                </td>
+                                <td class="col-stage">Qualification</td>
+                                <td class="col-next">In 2 weeks</td>
+                                <td class="col-amount">$640,000</td>
+                                <td class="col-date">Apr 12, 2025</td>
+                                <td class="col-owner"><span class="owner-avatar purple">KL</span></td>
+                            </tr>
+                            <tr>
+                                <td class="col-deal">
+                                    <span class="deal-indicator green"></span>
+                                    <div class="deal-info">
+                                        <span class="deal-name">Legend Homes</span>
+                                        <span class="deal-type">Upsell</span>
+                                    </div>
+                                </td>
+                                <td class="col-score"><span class="score low">33</span></td>
+                                <td class="col-warning"><span class="warning">&#9650; 4.1</span></td>
+                                <td class="col-activity">
+                                    <div class="activity-dots">
+                                        <span class="dot purple"></span>
+                                        <span class="dot purple"></span>
+                                        <span class="dot purple"></span>
+                                        <span class="dot light"></span>
+                                        <span class="dot light"></span>
+                                    </div>
+                                </td>
+                                <td class="col-stage">Validation</td>
+                                <td class="col-next">-</td>
+                                <td class="col-amount">$100,500</td>
+                                <td class="col-date">July 17, 2025</td>
+                                <td class="col-owner"><span class="owner-avatar green">DH</span></td>
+                            </tr>
+                            <tr>
+                                <td class="col-deal">
+                                    <span class="deal-indicator yellow"></span>
+                                    <div class="deal-info">
+                                        <span class="deal-name">Rundofase</span>
+                                        <span class="deal-type">New business</span>
+                                    </div>
+                                </td>
+                                <td class="col-score"><span class="score medium">44</span></td>
+                                <td class="col-warning"><span class="warning">&#9650; 4.7</span></td>
+                                <td class="col-activity">
+                                    <div class="activity-dots">
+                                        <span class="dot purple"></span>
+                                        <span class="dot purple"></span>
+                                        <span class="dot light"></span>
+                                        <span class="dot light"></span>
+                                        <span class="dot light"></span>
+                                    </div>
+                                </td>
+                                <td class="col-stage">Pilot</td>
+                                <td class="col-next">In 1 week</td>
+                                <td class="col-amount">$675,000</td>
+                                <td class="col-date">May 17, 2025</td>
+                                <td class="col-owner"><span class="owner-avatar red">MN</span></td>
+                            </tr>
+                            <tr>
+                                <td class="col-deal">
+                                    <span class="deal-indicator green"></span>
+                                    <div class="deal-info">
+                                        <span class="deal-name">Good Burger</span>
+                                        <span class="deal-type">Renewal</span>
+                                    </div>
+                                </td>
+                                <td class="col-score"><span class="score medium">55</span></td>
+                                <td class="col-warning"><span class="warning">&#9650; 4.4</span></td>
+                                <td class="col-activity">
+                                    <div class="activity-dots">
+                                        <span class="dot purple"></span>
+                                        <span class="dot purple"></span>
+                                        <span class="dot purple"></span>
+                                        <span class="dot light"></span>
+                                        <span class="dot light"></span>
+                                    </div>
+                                </td>
+                                <td class="col-stage">Discovery</td>
+                                <td class="col-next">In 3 weeks</td>
+                                <td class="col-amount">$287,000</td>
+                                <td class="col-date">June 28, 2025</td>
+                                <td class="col-owner"><span class="owner-avatar cyan">HG</span></td>
+                            </tr>
+                            <tr>
+                                <td class="col-deal">
+                                    <span class="deal-indicator green"></span>
+                                    <div class="deal-info">
+                                        <span class="deal-name">Acme</span>
+                                        <span class="deal-type">New business</span>
+                                    </div>
+                                </td>
+                                <td class="col-score"><span class="score high">96</span></td>
+                                <td class="col-warning"><span class="warning">&#9650; 4.8</span></td>
+                                <td class="col-activity">
+                                    <div class="activity-dots">
+                                        <span class="dot purple"></span>
+                                        <span class="dot purple"></span>
+                                        <span class="dot purple"></span>
+                                        <span class="dot purple"></span>
+                                        <span class="dot purple"></span>
+                                    </div>
+                                </td>
+                                <td class="col-stage">Alignment</td>
+                                <td class="col-next">Tomorrow</td>
+                                <td class="col-amount">$120,800</td>
+                                <td class="col-date">March 6, 2025</td>
+                                <td class="col-owner"><span class="owner-avatar pink">JH</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <span class="pagination-info">Show 1-100 of 3,409</span>
+                    <div class="pagination-controls">
+                        <button class="page-btn active">1</button>
+                        <button class="page-btn">2</button>
+                        <button class="page-btn">3</button>
+                        <button class="page-btn">4</button>
+                        <span class="page-ellipsis">...</span>
+                        <button class="page-btn">20</button>
+                        <button class="page-btn nav-btn">&#8594;</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
